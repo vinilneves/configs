@@ -111,7 +111,7 @@ set magic
 
 "ESLint
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = '/home/vinilneves/dev/apontamento/node_modules/eslint/bin/eslint.js'
+let g:syntastic_javascript_eslint_exec = '~/.nvm/versions/node/v9.11.2/bin/eslint'
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
 
