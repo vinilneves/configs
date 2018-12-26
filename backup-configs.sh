@@ -1,12 +1,14 @@
 #! /bin/bash
 
+date=$(date -d now '+%d-%m-%y')
+
 rm -rf .vimrc .zshrc
 
 (
-  git checkout -b auto &> /dev/null
+  git checkout -b auto-$date &> /dev/null
 )
 
-git checkout -f auto
+git checkout -f auto-$date
 
 cp ~/.vimrc ./
 cp ~/.zshrc ./
