@@ -13,4 +13,4 @@ cp ~/.zshrc ./
 
 git add . && git commit -m "Salvamento automático"
 
-$(git push 2>&1 >/dev/null | grep 'git push')
+$(git push 2>&1 | grep 'git push --set-upstream')
