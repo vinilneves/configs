@@ -6,7 +6,7 @@ endif
 
 call plug#begin('~/.vim/plgn')
 
-Plug 'valloric/youcompleteme'
+Plug 'valloric/youcompleteme', { 'do': 'python3 install.py' }
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install && python3 install.py --clang-completer' } 	    
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
