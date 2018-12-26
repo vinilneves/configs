@@ -8,7 +8,8 @@ rm -rf .vimrc .zshrc
 
 git checkout -f auto
 
-cp /home/vinilneves/.vimrc ./
+cp ~/.vimrc ./
+cp ~/.zshrc ./
 
 git add . && git commit -m "Salvamento automático"
 
