@@ -2,7 +2,7 @@
 
 date=$(date -d now '+%d-%m-%y')
 
-rm -rf .vimrc .zshrc
+rm ./.vimrc ./.zshrc
 
 (
   git checkout -b auto-$date &> /dev/null
