@@ -110,7 +110,7 @@ export SQS_URL="http://localhost:4576/queue"
 
 alias open=xdg-open;
 alias vim=nvim;
-alias gpush=$(git push 2>&1 >/dev/null | grep 'git push');
+alias gpush=$(git push 2>&1 | grep 'git push --set-upstream');
 
 function tocb() {
   read conteudo
