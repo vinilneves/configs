@@ -19,6 +19,10 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install' }
 
 call plug#end()
 
+" turn hybrid line numbers on
+:set number relativenumber
+:set nu rnu
+
 " ------ MARKDOWN PREVIEW -----------------------------------------------
 " set to 1, the nvim will open the preview window once enter the markdown buffer
 " default: 0
