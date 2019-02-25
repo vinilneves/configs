@@ -39,7 +39,7 @@ ZSH_THEME="amuse"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+ COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -63,7 +63,7 @@ ZSH_THEME="amuse"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git aws dnf docker docker-compose kubectl sudo 
+  git aws dnf docker docker-compose kubectl sudo
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -98,29 +98,27 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # User specific environment
-PATH="/opt/Postman:/opt/robo3t/bin:$HOME/.local/bin:$HOME/bin:$PATH"
-export PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-#SQS
-export SQS_URL="http://localhost:4576/queue"
-
-alias open=xdg-open;
-alias vim=nvim;
-alias gpush=$(git push 2>&1 | grep 'git push --set-upstream');
-
-function tocb() {
-  read conteudo
-  echo $conteudo | xclip -selection clipboard
-}
-
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
+if [ -e ~/set_envs ]; then
+  source ~/set_envs
+fi
+
 if [ -e ~/secret_vars ]; then
   source ~/secret_vars
+fi
+
+if [ -e ~/custom_commands ]; then
+  source ~/custom_commands
+fi
+
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+  source /etc/profile.d/vte.sh
 fi
 
