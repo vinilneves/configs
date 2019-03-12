@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/vinilneves/dev/sp_sqs_mongo'
+let g:netrw_dirhist_2='/home/vinilneves/dev/sp_sqs_mongo/src'
+let g:netrw_dirhist_3='/home/vinilneves/dev/sp_sqs_mongo'
+let g:netrw_dirhist_4='/home/vinilneves/dev/sp_sqs_mongo/src'
+let g:netrw_dirhist_5='/home/vinilneves/dev/apontamento'
+let g:netrw_dirhist_6='/home/vinilneves/dev/sp_sqs_mongo'
+let g:netrw_dirhist_7='/home/vinilneves'
+let g:netrw_dirhist_8='/home/vinilneves/dev'

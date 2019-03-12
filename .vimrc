@@ -12,6 +12,13 @@ if has('autocmd')
     "           │     │    └──── Enable file type detection
     "           │     └───────── Enable loading of indent file
     "           └─────────────── Enable loading of plugin files
+    "
+    au FileType php setl ofu=phpcomplete#CompletePHP
+    au FileType ruby,eruby setl ofu=rubycomplete#Complete
+    au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
+    au FileType c setl ofu=ccomplete#CompleteCpp
+    au FileType css setl ofu=csscomplete#CompleteCSS
+
 endif
 
 set autoindent                 " Copy indent to the new line
@@ -30,11 +37,6 @@ set clipboard=unnamed          " ┐
 if has('unnamedplus')          " │ as the default register
     set clipboard+=unnamedplus " │
 endif                          " ┘
-
-set cpoptions+=$               " When making a change, don't
-                               " redisplay the line, and instead,
-                               " put a `$` sign at the end of
-                               " the changed text
 
 set colorcolumn=73             " Highlight certain column(s)
 set cursorline                 " Highlight the current line
@@ -184,9 +186,12 @@ call plug#begin('~/.vim/plugged')
 
     " Plugins do gordim
     Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --ts-completer' }
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+
 
 call plug#end()
 " call vundle#end()
+
 
 filetype on
 
@@ -290,6 +295,7 @@ let g:syntastic_check_on_open = 1
 
 " Disable syntax checking by default
 let g:syntastic_mode_map = {
+    \ 'mode': 'passive',
     \ 'active_filetypes': [],
     \ 'passive_filetypes': []
 \}
@@ -442,7 +448,7 @@ set splitbelow
 let mapleader = ','
 
 imap <C-s> <Plug>(neosnippet_expand_or_jump)
-nmap <leader>d :YcmCompleter GoTo<CR>
+nmap <leader>d :YcmCompleter GoToDefinition<CR>
 nmap <leader>l :last<CR>
 "" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -513,13 +519,12 @@ nmap <leader>ts :SyntasticToggleMode<CR>
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 " [,v ] Make the opening of the `.vimrc` file easier
-nmap <leader>v :vsp $MYVIMRC<CR>
+nmap <leader>v :vsp ~/.vimrc<CR>
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 " [,W ] Sudo write
-map <leader>W :w !sudo tee %<CR>,
-
+map <leader>W :w !sudo tee ~/.vimrc
 
 " ----------------------------------------------------------------------
 " | Status Line                                                        |
@@ -628,4 +633,6 @@ let g:jsx_ext_required = 0
 
 " Open file using `gf` in a vertical tab
 nnoremap gf :vertical wincmd f<CR>
+
+" autocmd VimEnter * NERDTree
 
